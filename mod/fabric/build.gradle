@@ -1,0 +1,64 @@
+plugins {
+    id 'com.gradleup.shadow'
+}
+
+architectury {
+    platformSetupLoomIde()
+    fabric()
+}
+
+configurations {
+    common {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+    compileClasspath.extendsFrom common
+    runtimeClasspath.extendsFrom common
+    developmentFabric.extendsFrom common
+
+    // Files in this configuration will be bundled into your mod using the Shadow plugin.
+    // Don't use the `shadow` configuration from the plugin itself as it's meant for excluding files.
+    shadowBundle {
+        canBeResolved = true
+        canBeConsumed = false
+    }
+}
+
+dependencies {
+
+    modImplementation libs.bundles.fabricDeps
+    modImplementation libs.architectury.fabric
+
+    common(project(path: ':common')) { transitive = false }
+    common(project(path: ':mod:common', configuration: 'namedElements')) { transitive = false }
+
+    shadowBundle project(":common")
+    shadowBundle project(path: ':mod:common', configuration: 'transformProductionFabric')
+}
+
+processResources {
+    def props = [
+            mod_id               : rootProject.mod_id,
+            mod_name             : rootProject.mod_name,
+            version              : version,
+            minecraft_version    : libs.versions.minecraft.get(),
+            fabric_loader_version: libs.versions.fabric.loader.get(),
+            architectury_version : libs.versions.architectury.get(),
+            project_author       : rootProject.project_author.split(',').stream().map { "\"${it}\"" }.toList().join(", "),
+            project_description  : rootProject.project_description,
+    ]
+    inputs.properties props
+    filteringCharset = 'UTF-8'
+    filesMatching('fabric.mod.json') {
+        expand props
+    }
+}
+
+shadowJar {
+    configurations = [project.configurations.shadowBundle]
+    archiveClassifier = 'dev-shadow'
+}
+
+remapJar {
+    inputFile = shadowJar.archiveFile
+}

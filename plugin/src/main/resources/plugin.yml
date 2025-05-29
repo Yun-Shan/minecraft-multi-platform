@@ -1,0 +1,6 @@
+name: ${plugin_name}
+version: ${version}
+main: org.yunshanmc.example_mcmp.plugin.ExampleMcMP
+api-version: '1.21'
+authors: [${project_author}]
+description: ${project_description}

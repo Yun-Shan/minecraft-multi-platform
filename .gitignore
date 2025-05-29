@@ -1,0 +1,16 @@
+# IDEA
+.idea/
+.idea_modules/
+*.iml
+*.iws
+out/
+
+# Gradle
+.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Minecraft
+**/run/
+.architectury-transformer/

@@ -1,0 +1,26 @@
+[versions]
+minecraft = "1.21.4"
+architectury = "15.0.3"
+fabric_loader = "0.16.14"
+fabric_api = "0.119.2+1.21.4"
+neoforge = "21.4.136"
+paper = "1.21.4-R0.1-SNAPSHOT"
+
+[libraries]
+minecraft = { module = "net.minecraft:minecraft", version.ref = "minecraft" }
+architectury-common = { module = "dev.architectury:architectury", version.ref = "architectury" }
+architectury-fabric = { module = "dev.architectury:architectury-fabric", version.ref = "architectury" }
+architectury-neoforge = { module = "dev.architectury:architectury-neoforge", version.ref = "architectury" }
+fabric-loader = { module = "net.fabricmc:fabric-loader", version.ref = "fabric_loader" }
+fabric-api = { module = "net.fabricmc.fabric-api:fabric-api", version.ref = "fabric_api" }
+neoforge-api = { module = "net.neoforged:neoforge", version.ref = "neoforge" }
+paper-api = { module = "io.papermc.paper:paper-api", version.ref = "paper" }
+
+[bundles]
+fabricDeps = ["fabric-loader", "fabric-api"]
+
+[plugins]
+architectury-loom = { id = "dev.architectury.loom", version = "1.10-SNAPSHOT" }
+architectury-plugin = { id = "architectury-plugin", version = "3.4-SNAPSHOT" }
+shadow = { id = "com.gradleup.shadow", version = "8.3.6" }
+runPaper = { id = "xyz.jpenilla.run-paper", version = "2.3.1" }

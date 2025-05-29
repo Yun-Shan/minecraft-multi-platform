@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${project_description}",
+  "authors": [${project_author}],
+  "contact": {
+    "homepage": ""
+  },
+  "license": "All-Rights-Reserved",
+  "icon": "assets/${mod_id}/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "org.yunshanmc.example_mcmp.fabric.ModMain"
+    ],
+    "client": [
+      "org.yunshanmc.example_mcmp.fabric.client.ModMainClient"
+    ]
+  },
+  "mixins": [
+    "main.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=21",
+    "architectury": ">=${architectury_version}",
+    "fabric-api": "*"
+  },
+  "suggests": {
+  }
+}
