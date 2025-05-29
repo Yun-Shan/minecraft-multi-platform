@@ -8,7 +8,7 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.yunshanmc.example_mcmp.CommonExampleMcMP;
 
-public final class ExampleMcMP extends JavaPlugin implements Listener {
+public final class PluginMain extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
