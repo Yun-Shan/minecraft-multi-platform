@@ -75,3 +75,17 @@ processResources {
 artifacts {
     archives shadowJar
 }
+
+tasks.build {
+    var inputFiles = tasks.shadowJar.outputs
+    var outputDir = rootProject.layout.buildDirectory.dir("libs")
+    inputs.files(inputFiles)
+    outputs.dir(outputDir)
+    doLast {
+        copy {
+            from(inputFiles)
+            rename("-all.jar", ".jar")
+            into(outputDir)
+        }
+    }
+}

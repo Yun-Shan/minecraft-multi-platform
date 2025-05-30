@@ -74,4 +74,18 @@ subprojects {
             // retrieving dependencies.
         }
     }
+
+    tasks.build {
+        var inputFiles = tasks.remapJar.outputs
+        var outputDir = rootProject.layout.buildDirectory.dir("libs")
+        inputs.files(inputFiles)
+        outputs.dir(outputDir)
+        doLast {
+            if (project.path == ":mod:common") return
+            copy {
+                from(inputFiles)
+                into(outputDir)
+            }
+        }
+    }
 }
