@@ -11,3 +11,5 @@
 7. rename all `org.yunshanmc.example_mcmp` to your mod base package name.
 8. you can develop multi-platform minecraft mod/plugin project now!
 
+## update mod/plugin version
+edit version in `/mod/gradle.properties` and `/plugin/gradle.properties`
