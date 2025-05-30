@@ -1,5 +1,6 @@
 [versions]
 minecraft = "1.21.4"
+parchmentmc = "1.21.4:2025.03.23"
 architectury = "15.0.3"
 fabric_loader = "0.16.14"
 fabric_api = "0.119.2+1.21.4"
